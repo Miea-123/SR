@@ -1,197 +1,172 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>学术简报｜SR-地尔硫䓬：心率调节</title>
-  <style>
-    :root{
-      --brand:#312e81;          /* 深蓝紫主色，更高级 */
-      --brand-light:#6366f1;    /* 蓝紫渐变 */
-      --bg:#f9fafb;
-      --card:#ffffff;
-      --ink:#111827;
-      --muted:#6b7280;
-      --ok:#4338ca;             /* 蓝紫强调 */
-      --accent:#6366f1;         /* 次强调 */
-      --success:#059669;
-      --shadow:0 8px 24px rgba(0,0,0,.08);
-      --radius:18px;
-    }
-    body{
-      margin:0; background:var(--bg); color:var(--ink);
-      font-family:"Alibaba PuHuiTi","PingFang SC","Microsoft YaHei",sans-serif;
-      line-height:1.7;
-    }
-    .wrap{max-width:1100px; margin:0 auto; padding:24px;}
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>学术简报｜SR-地尔硫䓬 & NORDIL（竖版·精简高级）</title>
+<style>
+  :root{--ink:#0f172a;--sub:#64748b;--line:#e5e7eb;--brand:#1d4ed8;--brand-weak:#eef2ff}
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;font-family:"Alibaba PuHuiTi","PingFang SC","Microsoft YaHei",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 
-    header{
-      border-radius:20px; color:#fff;
-      background:linear-gradient(135deg,var(--brand),var(--brand-light));
-      padding:40px 32px; box-shadow:var(--shadow);
-    }
-    header h1{margin:0; font-size:30px; line-height:1.3;}
-    header p{margin:12px 0 0; font-size:15px; opacity:.9}
-    .meta{display:flex; flex-wrap:wrap; gap:12px; margin-top:18px;}
-    .chip{background:rgba(255,255,255,.18); padding:6px 14px; border-radius:999px; font-size:13px;}
+  /* 竖版画布（不强制A4，但以竖向视觉为主；打印自动适配） */
+  .wrap{max-width:860px;margin:0 auto;padding:28px 20px 40px}
+  h1{font-size:32px;line-height:1.25;margin:0 0 10px}
+  h2{font-size:20px;line-height:1.35;margin:0 0 8px}
+  h3{font-size:16px;line-height:1.35;margin:0 0 8px}
+  p,li{word-break:break-word;overflow-wrap:break-word}
 
-    nav{display:flex; flex-wrap:wrap; gap:10px; margin-top:18px;}
-    nav a{color:#fff; text-decoration:none; background:rgba(255,255,255,.15); padding:6px 14px; border-radius:999px; font-size:13px; transition:.3s;}
-    nav a:hover{background:rgba(255,255,255,.35)}
+  /* 统一的卡片与线框风格（竖向留白更大） */
+  .card{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff;page-break-inside:avoid}
+  .hero{border:1px solid var(--line);border-radius:16px;padding:18px 18px 14px;display:block}
+  .title{font-size:30px;font-weight:900;letter-spacing:.2px;margin-bottom:6px}
+  .tag{font-size:12px;color:var(--sub)}
+  .claim{margin-top:10px;font-size:15px;border-left:3px solid var(--brand);padding-left:12px}
+  .delta{color:var(--brand);font-weight:800}
+  .muted{color:var(--sub)}
 
-    .card{background:var(--card); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow); margin-top:24px;}    
-    .card h2{margin:8px 0 14px; font-size:22px; color:var(--brand)}
-    .sub{font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px; text-transform:uppercase;}
+  /* 单列竖排：信息块从上到下 */
+  .stack{display:flex;flex-direction:column;gap:14px}
 
-    /* KPI 优化：居中+卡片更突出 */
-    .kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:20px; margin-top:16px;}
-    .kpi{
-      border-radius:16px;
-      padding:20px 14px;
-      background:linear-gradient(180deg,#fff,#f3f4f6);
-      border:1px solid #e5e7eb;
-      text-align:center;
-      box-shadow:inset 0 0 0 3px #eef2ff;
-    }
-    .kpi .v{font-size:26px; font-weight:700; margin-top:10px; color:var(--brand)}
-    .kpi .t{font-size:14px; color:var(--muted); margin-top:6px}
+  /* KPI 列表（竖版两列） */
+  .kpis{display:grid;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr))}
+  @media(max-width:540px){.kpis{grid-template-columns:1fr}}
+  .kpi{border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+  .kpi .lab{font-size:11px;color:var(--sub);letter-spacing:.5px}
+  .kpi .val{font-size:18px;font-weight:800}
+  .kpi .sub{font-size:11px;color:var(--sub)}
 
-    .bullets{display:grid; gap:14px; margin-top:12px;}
-    .bullet{display:flex; gap:12px; align-items:flex-start;}
-    .badge{width:30px; height:30px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; flex:0 0 30px; font-size:14px;}
+  /* 表格（细边框） */
+  .table{width:100%;border-collapse:collapse;margin-top:6px}
+  .table th,.table td{border:1px solid var(--line);padding:8px 10px;text-align:center;font-size:13px}
+  .table th{background:#fafafa}
+  .table tr{page-break-inside:avoid}
 
-    .hl{background:#eef2ff; border-left:4px solid var(--ok); padding:14px; border-radius:12px; margin-top:14px; font-size:15px;}
+  /* 安全性：极简单色条形（品牌蓝 vs 灰），更适合竖版空间 */
+  .legend{display:flex;gap:12px;align-items:center;font-size:12px;color:var(--sub);margin:4px 0}
+  .dot{width:8px;height:8px;border-radius:50%;display:inline-block;border:1px solid var(--line);margin-right:6px}
+  .dot.sr{background:var(--brand-weak);border-color:#c7d2fe}
+  .dot.ct{background:#f3f4f6;border-color:#e2e8f0}
+  .barrow{display:grid;grid-template-columns:110px 1fr 70px;align-items:center;gap:8px}
+  .barstack{display:flex;gap:8px;align-items:center;min-width:0}
+  .chip{height:8px;border:1px solid var(--line);border-radius:5px;min-width:6px;max-width:140px}
+  .chip.sr{background:var(--brand-weak);border-color:#c7d2fe}
+  .chip.ct{background:#f3f4f6;border-color:#e2e8f0}
+  .right{justify-self:end;color:var(--brand);font-weight:800}
 
-    table{width:100%; border-collapse:separate; border-spacing:0; font-size:14px; margin-top:14px; border-radius:12px; overflow:hidden;}
-    th,td{padding:10px 14px; text-align:left;}
-    thead th{background:#eef2ff; color:#1e3a8a; font-weight:700;}
-    tbody tr:nth-child(even){background:#f9fafb}
-    tbody td{border-bottom:1px solid #e5e7eb}
-    .caption{font-size:13px; color:var(--muted); margin-top:8px; text-align:center}
-
-    footer{margin:40px 0 50px; color:var(--muted); font-size:13px; text-align:center}
-  </style>
+  /* 打印：竖向自动分页，留足页边；标题等元素不拆分 */
+  @page{size:auto;margin:16mm}
+  @media print{.wrap{max-width:100%;padding:0 12mm} .card,.hero,table{page-break-inside:avoid} a[href]:after{content:""}}
+</style>
 </head>
 <body>
   <div class="wrap">
-    <header>
-      <h1>学术简报｜SR-地尔硫䓬：心率调节</h1>
-      <p>Clin. Cardiol. 2001;24:73–79 · 纳入 6 项双盲研究，共 771 例心绞痛/高血压患者的汇总分析</p>
-      <div class="meta">
-        <span class="chip">🧪 双盲随机对照 & 元分析</span>
-        <span class="chip">💊 剂量：200–300 mg qd</span>
-        <span class="chip">👥 N=771</span>
-        <span class="chip">⏱ 终点：静息与运动 HR</span>
-      </div>
-      <nav>
-        <a href="#summary">摘要</a>
-        <a href="#methods">方法</a>
-        <a href="#results">结果</a>
-        <a href="#exercise">运动试验</a>
-        <a href="#implications">临床启示</a>
-        <a href="#limits">局限性</a>
-        <a href="#reference">引文</a>
-      </nav>
-    </header>
-
-    <section class="card" id="summary">
-      <div class="sub">Summary · 摘要</div>
-      <h2>“下调快、稳住慢”：SR-地尔硫䓬的心率调节</h2>
-      <div class="bullets">
-        <div class="bullet"><div class="badge" style="background:var(--ok)">1</div><div><b>HR≥85 次/分</b>人群，平均下降 <b>10.7±8.3</b> 次/分；对照组 <b>5.8±10.2</b>（p=0.001）。</div></div>
-        <div class="bullet"><div class="badge" style="background:var(--accent)">2</div><div><b>HR 74–84</b> 次/分，下降 <b>6.1±7.0</b>；对照 <b>2.2±7.7</b>（p=0.001）。</div></div>
-        <div class="bullet"><div class="badge" style="background:#64748b">3</div><div><b>HR≤74</b> 次/分，<u>未见显著下降</u>（降低过慢风险小）。</div></div>
-        <div class="bullet"><div class="badge" style="background:var(--success)">4</div><div><b>运动 HR</b> 在 30–90W 均显著低于安慰剂；最大运动时无差异；<b>最大功输出↑</b>与<b>运动时间延长</b>呈趋势。</div></div>
-      </div>
-      <div class="hl">要点：在心率偏快人群中显著降低 HR，而在正常/偏慢人群中保持稳定，体现“<b>降速不致过慢</b>”特性。</div>
+    <!-- 顶部：竖版大标题 + 横向主张（仅品牌蓝强调） -->
+    <section class="hero">
+      <div class="title">SR-地尔硫䓬 & NORDIL 学术简报</div>
+      <div class="claim">💡 一句话结论：<b class="delta">SR-地尔硫䓬</b>心率调节不致过慢；<b class="delta">NORDIL</b>在等效降压前提下<b class="delta">卒中获益</b>且耐受性良好。</div>
     </section>
 
-    <section class="card" id="kpi">
-      <div class="sub">KPI · 关键数据</div>
+    <!-- 上半：SR-地尔硫䓬 心率调节（单列竖排，更集中） -->
+    <section class="card stack" style="margin-top:14px">
+      <h2>💓 SR-地尔硫䓬：心率“调节”效应（不致过慢）</h2>
       <div class="kpis">
-        <div class="kpi"><div class="v">6 项</div><div class="t">双盲研究</div></div>
-        <div class="kpi"><div class="v">771</div><div class="t">入组患者</div></div>
-        <div class="kpi"><div class="v">200–300 mg</div><div class="t">常用剂量</div></div>
-        <div class="kpi"><div class="v">p=0.001</div><div class="t">显著性</div></div>
+        <div class="kpi"><div class="lab">研究数</div><div class="val">6 项</div><div class="sub">双盲随机对照</div></div>
+        <div class="kpi"><div class="lab">入组人数</div><div class="val">771</div><div class="sub">心绞痛/高血压</div></div>
+        <div class="kpi"><div class="lab">剂量</div><div class="val">200–300 mg</div><div class="sub">每日一次</div></div>
+        <div class="kpi"><div class="lab">显著性</div><div class="val delta">p=0.001</div><div class="sub">高 HR 组</div></div>
       </div>
-      <p class="caption">基线：平均年龄 59.5 岁；男性 58%；基线收缩压 161–163 mmHg；HR 75–77 次/分。</p>
-    </section>
-
-    <section class="card" id="methods">
-      <div class="sub">Methods · 方法</div>
-      <h2>设计与比较</h2>
-      <p>6 项双盲随机平行试验，共 771 例心绞痛/高血压患者。比较 <b>SR-地尔硫䓬 200–300 mg qd</b> 与安慰剂/不影响 HR 药物，评估静息与运动心率。</p>
-      <ul>
-        <li>基线 HR 分层：≤65、65–74、74–84、≥85 次/分。</li>
-        <li>统计：双因素方差分析 + Hommel 校正。</li>
-        <li>运动试验：0、30、60、90 W 与最大运动时的 HR。</li>
-      </ul>
-    </section>
-
-    <section class="card" id="results">
-      <div class="sub">Results · 结果</div>
-      <h2>静息 HR：高基线更获益，低基线更安全</h2>
-      <table>
-        <thead>
-          <tr><th>基线 HR</th><th>SR ΔHR</th><th>对照 ΔHR</th><th>显著性</th><th>可视化</th></tr>
-        </thead>
+      <ul style="margin:0 0 0 18px">
+        <li>HR ≥85 次/分：<b class="delta">↓10.7±8.3</b>；对照 <b>↓5.8±10.2</b>（<span class="delta">p=0.001</span>）。</li>
+        <li>HR 74–84 次/分：<b class="delta">↓6.1±7.0</b>；对照 <b>↓2.2±7.7</b>（<span class="delta">p=0.001</span>）。</li>
+        <li>HR ≤74 次/分：未见显著下降 → <span class="delta">降速不致过慢</span>。</li>
+        <table class="table">
+        <thead><tr><th>基线 HR 分层</th><th>SR-地尔硫䓬 ΔHR（次/分）</th><th>对照 ΔHR（次/分）</th><th>显著性</th></tr></thead>
         <tbody>
-          <tr><td>≥85</td><td><b>-10.7 ± 8.3</b></td><td>-5.8 ± 10.2</td><td><b>p=0.001</b></td><td><div style="height:8px;background:#e5e7eb;border-radius:4px;overflow:hidden"><span style="display:block;width:72%;height:100%;background:var(--ok)"></span></div></td></tr>
-          <tr><td>74–84</td><td><b>-6.1 ± 7.0</b></td><td>-2.2 ± 7.7</td><td><b>p=0.001</b></td><td><div style="height:8px;background:#e5e7eb;border-radius:4px;overflow:hidden"><span style="display:block;width:46%;height:100%;background:var(--ok)"></span></div></td></tr>
-          <tr><td>65–74</td><td>-</td><td>-</td><td>不显著</td><td></td></tr>
-          <tr><td>≤65</td><td>-</td><td>-</td><td>不显著</td><td></td></tr>
+          <tr><td>74–84</td><td class="delta">-6.1</td><td>-2.2</td><td class="delta">p&lt;0.001</td></tr>
+          <tr><td>≥85</td><td class="delta">-10.7</td><td>-5.8</td><td class="delta">p=0.001</td></tr>
+          <tr><td>≤74</td><td>无显著变化</td><td>—</td><td>NS</td></tr>
         </tbody>
       </table>
-      <p class="caption">提示：较低基线 HR 人群维持稳定，不致过度减慢。</p>
     </section>
 
-    <section class="card" id="exercise">
-      <div class="sub">Exercise · 运动试验</div>
-      <h2>200/300 mg 在亚最大负荷下优于安慰剂</h2>
-      <table>
+    <!-- 下半：NORDIL 结局 + 安全性（竖版分段，阅读动线自上而下） -->
+    <section class="card stack" style="margin-top:14px">
+      <h2>🛡️ NORDIL：等效降压 + <span class="delta">卒中额外获益</span></h2>
+      <div class="kpis">
+        <div class="kpi"><div class="lab">样本量</div><div class="val">10,881</div><div class="sub">50–74 岁，高血压</div></div>
+        <div class="kpi"><div class="lab">随访</div><div class="val">≈4.5 年</div><div class="sub">中位随访</div></div>
+        <div class="kpi"><div class="lab">主要终点</div><div class="val">等效</div><div class="sub">RR 1.00；p=0.97</div></div>
+        <div class="kpi"><div class="lab">卒中风险</div><div class="val delta">↓20%</div><div class="sub">RR 0.80；p=0.04</div></div>
+      </div>
+
+      <div class="card" style="padding:12px;border-radius:10px">
+        <div class="muted" style="margin-bottom:6px">📣 主张</div>
+        <div><b>在等效降压的前提下</b>，SR-地尔硫䓬带来<b class="delta">更低的卒中事件率</b>，并具备<b>良好耐受性</b>。</div>
+      </div>
+
+      <h3>🙂 安全性（SR-地尔硫䓬不良反应更少）</h3>
+      <div class="legend"><span class="dot sr"></span>SR-地尔硫䓬 <span class="dot ct"></span>利尿剂/β阻滞剂</div>
+      <table class="table">
         <thead>
-          <tr><th>负荷</th><th>安慰剂 HR</th><th>SR 200 mg</th><th>SR 300 mg</th><th>统计</th></tr>
+          <tr>
+            <th>事件</th>
+            <th>SR-地尔硫䓬</th>
+            <th>对照</th>
+            <th>绝对差</th>
+            <th>相对下降</th>
+            <th style="width:42%">图形对照</th>
+          </tr>
         </thead>
         <tbody>
-          <tr><td>静息</td><td>77.0 ± 11.7</td><td><b>72.0 ± 10.2</b></td><td><b>72.7 ± 12.2</b></td><td>p&lt;0.05</td></tr>
-          <tr><td>30 W</td><td>100.0 ± 16.7</td><td><b>91.9 ± 13.4</b></td><td><b>93.2 ± 15.4</b></td><td>p&lt;0.01 / p&lt;0.05</td></tr>
-          <tr><td>60 W</td><td>116.6 ± 16.4</td><td><b>106.5 ± 14.6</b></td><td><b>106.6 ± 17.9</b></td><td>均 p&lt;0.01</td></tr>
-          <tr><td>90 W</td><td>132.0 ± 16.5</td><td><b>120.7 ± 14.3</b></td><td><b>120.6 ± 19.3</b></td><td>均 p&lt;0.01</td></tr>
+          <tr>
+            <td>乏力</td>
+            <td>4.4%</td>
+            <td>6.5%</td>
+            <td class="delta">-2.1%</td>
+            <td class="delta">≈32%↓</td>
+            <td>
+              <div class="barrow">
+                <div class="barstack"><span class="muted">SR</span><div class="chip sr" style="width:calc(4.4*6px)"></div></div>
+                <div class="barstack"><span class="muted">对照</span><div class="chip ct" style="width:calc(6.5*6px)"></div></div>
+                <div class="right">更少</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>呼吸困难</td>
+            <td>2.9%</td>
+            <td>3.9%</td>
+            <td class="delta">-1.0%</td>
+            <td class="delta">≈26%↓</td>
+            <td>
+              <div class="barrow">
+                <div class="barstack"><span class="muted">SR</span><div class="chip sr" style="width:calc(2.9*6px)"></div></div>
+                <div class="barstack"><span class="muted">对照</span><div class="chip ct" style="width:calc(3.9*6px)"></div></div>
+                <div class="right">更少</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>性功能障碍</td>
+            <td>2.3%</td>
+            <td>3.7%</td>
+            <td class="delta">-1.4%</td>
+            <td class="delta">≈38%↓</td>
+            <td>
+              <div class="barrow">
+                <div class="barstack"><span class="muted">SR</span><div class="chip sr" style="width:calc(2.3*6px)"></div></div>
+                <div class="barstack"><span class="muted">对照</span><div class="chip ct" style="width:calc(3.7*6px)"></div></div>
+                <div class="right">更少</div>
+              </div>
+            </td>
+          </tr>
         </tbody>
       </table>
-      <p class="caption">最大运动时差异不显著；最大功输出更高（p&lt;0.05），运动时长延长趋势（p=0.07）。</p>
     </section>
 
-    <section class="grid" id="implications">
-      <article class="card">
-        <div class="sub">Clinical Implications · 临床启示</div>
-        <h2>SR-地尔硫䓬的适用场景</h2>
-        <ul>
-          <li><b>HR 偏快（≥74–85 次/分）</b>的高血压/心绞痛患者。</li>
-          <li>需<b>避免过度缓慢</b>的情境（基线 HR 较低或 β 阻滞剂不耐受）。</li>
-          <li><b>与二氢吡啶类</b>互补，兼顾缺血负荷与心率控制。</li>
-        </ul>
-      </article>
-      <aside class="card" id="limits">
-        <div class="sub">Limitations · 局限性</div>
-        <h2>解读注意</h2>
-        <ul>
-          <li>基于<b>回顾性汇总</b>，非单一前瞻试验。</li>
-          <li>HR 与结局改善的<b>因果性</b>需结合前瞻研究。</li>
-          <li>人群以心绞痛/高血压为主，推广至其他队列需谨慎。</li>
-        </ul>
-      </aside>
-    </section>
-
-    <section class="card" id="reference">
-      <div class="sub">Reference · 引文</div>
-      <h2>文献信息</h2>
-      <p>Boden WE, Vray M, Schwenger E, Lauret D, Scheldewaert R. <i>Heart Rate-Lowering and -Regulating Effects of Once-Daily Sustained-Release Diltiazem.</i> <b>Clinical Cardiology</b>. 2001;24:73–79.</p>
-      <p class="caption">本文所有数据与结论均整理自原始研究，仅供学术/科室汇报。</p>
-    </section>
-
-    <footer>
-      <div>© 学术简报模板 · 可用于会议汇报/院内培训</div>
+    <footer class="muted" style="text-align:center;margin-top:14px;font-size:12.5px">
     </footer>
   </div>
 </body>
