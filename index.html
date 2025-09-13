@@ -1,173 +1,384 @@
-<!doctype html>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>学术简报｜SR-地尔硫䓬 & NORDIL（竖版·精简高级）</title>
-<style>
-  :root{--ink:#0f172a;--sub:#64748b;--line:#e5e7eb;--brand:#1d4ed8;--brand-weak:#eef2ff}
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{margin:0;font-family:"Alibaba PuHuiTi","PingFang SC","Microsoft YaHei",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-
-  /* 竖版画布（不强制A4，但以竖向视觉为主；打印自动适配） */
-  .wrap{max-width:860px;margin:0 auto;padding:28px 20px 40px}
-  h1{font-size:32px;line-height:1.25;margin:0 0 10px}
-  h2{font-size:20px;line-height:1.35;margin:0 0 8px}
-  h3{font-size:16px;line-height:1.35;margin:0 0 8px}
-  p,li{word-break:break-word;overflow-wrap:break-word}
-
-  /* 统一的卡片与线框风格（竖向留白更大） */
-  .card{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff;page-break-inside:avoid}
-  .hero{border:1px solid var(--line);border-radius:16px;padding:18px 18px 14px;display:block}
-  .title{font-size:30px;font-weight:900;letter-spacing:.2px;margin-bottom:6px}
-  .tag{font-size:12px;color:var(--sub)}
-  .claim{margin-top:10px;font-size:15px;border-left:3px solid var(--brand);padding-left:12px}
-  .delta{color:var(--brand);font-weight:800}
-  .muted{color:var(--sub)}
-
-  /* 单列竖排：信息块从上到下 */
-  .stack{display:flex;flex-direction:column;gap:14px}
-
-  /* KPI 列表（竖版两列） */
-  .kpis{display:grid;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr))}
-  @media(max-width:540px){.kpis{grid-template-columns:1fr}}
-  .kpi{border:1px solid var(--line);border-radius:12px;padding:10px 12px}
-  .kpi .lab{font-size:11px;color:var(--sub);letter-spacing:.5px}
-  .kpi .val{font-size:18px;font-weight:800}
-  .kpi .sub{font-size:11px;color:var(--sub)}
-
-  /* 表格（细边框） */
-  .table{width:100%;border-collapse:collapse;margin-top:6px}
-  .table th,.table td{border:1px solid var(--line);padding:8px 10px;text-align:center;font-size:13px}
-  .table th{background:#fafafa}
-  .table tr{page-break-inside:avoid}
-
-  /* 安全性：极简单色条形（品牌蓝 vs 灰），更适合竖版空间 */
-  .legend{display:flex;gap:12px;align-items:center;font-size:12px;color:var(--sub);margin:4px 0}
-  .dot{width:8px;height:8px;border-radius:50%;display:inline-block;border:1px solid var(--line);margin-right:6px}
-  .dot.sr{background:var(--brand-weak);border-color:#c7d2fe}
-  .dot.ct{background:#f3f4f6;border-color:#e2e8f0}
-  .barrow{display:grid;grid-template-columns:110px 1fr 70px;align-items:center;gap:8px}
-  .barstack{display:flex;gap:8px;align-items:center;min-width:0}
-  .chip{height:8px;border:1px solid var(--line);border-radius:5px;min-width:6px;max-width:140px}
-  .chip.sr{background:var(--brand-weak);border-color:#c7d2fe}
-  .chip.ct{background:#f3f4f6;border-color:#e2e8f0}
-  .right{justify-self:end;color:var(--brand);font-weight:800}
-
-  /* 打印：竖向自动分页，留足页边；标题等元素不拆分 */
-  @page{size:auto;margin:16mm}
-  @media print{.wrap{max-width:100%;padding:0 12mm} .card,.hero,table{page-break-inside:avoid} a[href]:after{content:""}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盐酸达克罗宁：监管历程与临床价值深度回顾</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Strategic Blue & Neutral Gray -->
+    <!-- Application Structure Plan: Based on user feedback for more detail, this version expands upon the previous structure. The flow remains: 1. **Introduction**: Now provides deeper scientific context on Dyclonine's chemical class and mechanism. 2. **Regulatory Journey**: Each timeline step is now elaborated with detailed explanations of the regulatory implications (e.g., defining NDA vs. ANDA, explaining the significance of the FDA's ruling in waiving trial requirements). 3. **Clinical Findings**: This section is significantly expanded with more study details, methodology descriptions, and in-depth interpretations of the results, providing a more robust evidence-based summary. The goal is to create a comprehensive, detailed factual review, addressing the "too concise" feedback while adhering to the focus on history and existing data. -->
+    <!-- Visualization & Content Choices: 
+        - All visualizations and interactions from the previous version are retained.
+        - The primary change is the significant expansion of textual content within each section. More descriptive subheadings, paragraphs, and detailed lists have been added to provide depth.
+        - The "Insight" boxes are retained and their content is elaborated to provide clearer, more impactful takeaways from the more detailed information presented.
+        - The term "Reported Weaknesses" is maintained to keep the tone neutral and factual.
+        - Justification for all choices remains the same, but the implementation is now more thorough and detailed.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            color: #334155; /* slate-700 */
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link.active, .nav-link:hover {
+            color: #2563eb; /* blue-600 */
+            border-bottom-color: #2563eb;
+        }
+        .content-card {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0; /* slate-200 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px; /* Reduced height to fit insight box */
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 320px;
+            }
+        }
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2.5rem;
+            padding-left: 2.5rem;
+        }
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+        .timeline-marker {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #3b82f6;
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+        .timeline-line {
+            position: absolute;
+            left: 1rem;
+            top: 2rem;
+            width: 2px;
+            height: calc(100% - 2rem);
+            background-color: #cbd5e1; /* slate-300 */
+        }
+        .insight-box {
+            background-color: #eff6ff; /* blue-50 */
+            border-left: 4px solid #3b82f6; /* blue-500 */
+            padding: 1.25rem;
+            margin-bottom: 2rem;
+            border-radius: 0 8px 8px 0;
+        }
+        .font-black {
+            font-weight: 900;
+        }
+    </style>
 </head>
-<body>
-  <div class="wrap">
-    <!-- 顶部：竖版大标题 + 横向主张（仅品牌蓝强调） -->
-    <section class="hero">
-      <div class="title">SR-地尔硫䓬 & NORDIL 学术简报</div>
-      <div class="claim">💡 一句话结论：<b class="delta">SR-地尔硫䓬</b>心率调节不致过慢；<b class="delta">NORDIL</b>在等效降压前提下<b class="delta">卒中获益</b>且耐受性良好。</div>
-    </section>
+<body class="antialiased">
 
-    <!-- 上半：SR-地尔硫䓬 心率调节（单列竖排，更集中） -->
-    <section class="card stack" style="margin-top:14px">
-      <h2>💓 SR-地尔硫䓬：心率“调节”效应（不致过慢）</h2>
-      <div class="kpis">
-        <div class="kpi"><div class="lab">研究数</div><div class="val">6 项</div><div class="sub">双盲随机对照</div></div>
-        <div class="kpi"><div class="lab">入组人数</div><div class="val">771</div><div class="sub">心绞痛/高血压</div></div>
-        <div class="kpi"><div class="lab">剂量</div><div class="val">200–300 mg</div><div class="sub">每日一次</div></div>
-        <div class="kpi"><div class="lab">显著性</div><div class="val delta">p=0.001</div><div class="sub">高 HR 组</div></div>
-      </div>
-      <ul style="margin:0 0 0 18px">
-        <li>HR ≥85 次/分：<b class="delta">↓10.7±8.3</b>；对照 <b>↓5.8±10.2</b>（<span class="delta">p=0.001</span>）。</li>
-        <li>HR 74–84 次/分：<b class="delta">↓6.1±7.0</b>；对照 <b>↓2.2±7.7</b>（<span class="delta">p=0.001</span>）。</li>
-        <li>HR ≤74 次/分：未见显著下降 → <span class="delta">降速不致过慢</span>。</li>
-        <table class="table">
-        <thead><tr><th>基线 HR 分层</th><th>SR-地尔硫䓬 ΔHR（次/分）</th><th>对照 ΔHR（次/分）</th><th>显著性</th></tr></thead>
-        <tbody>
-          <tr><td>74–84</td><td class="delta">-6.1</td><td>-2.2</td><td class="delta">p&lt;0.001</td></tr>
-          <tr><td>≥85</td><td class="delta">-10.7</td><td>-5.8</td><td class="delta">p=0.001</td></tr>
-          <tr><td>≤74</td><td>无显著变化</td><td>—</td><td>NS</td></tr>
-        </tbody>
-      </table>
-    </section>
+    <header class="bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm border-b border-slate-200">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <h1 class="text-xl font-bold text-slate-800">达克罗宁：监管与临床回顾</h1>
+                <div class="hidden md:flex items-baseline space-x-4">
+                    <a href="#overview" class="nav-link px-3 py-2 text-sm font-medium">核心总览</a>
+                    <a href="#regulatory" class="nav-link px-3 py-2 text-sm font-medium">监管历程</a>
+                    <a href="#efficacy" class="nav-link px-3 py-2 text-sm font-medium">临床研究结果</a>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-    <!-- 下半：NORDIL 结局 + 安全性（竖版分段，阅读动线自上而下） -->
-    <section class="card stack" style="margin-top:14px">
-      <h2>🛡️ NORDIL：等效降压 + <span class="delta">卒中额外获益</span></h2>
-      <div class="kpis">
-        <div class="kpi"><div class="lab">样本量</div><div class="val">10,881</div><div class="sub">50–74 岁，高血压</div></div>
-        <div class="kpi"><div class="lab">随访</div><div class="val">≈4.5 年</div><div class="sub">中位随访</div></div>
-        <div class="kpi"><div class="lab">主要终点</div><div class="val">等效</div><div class="sub">RR 1.00；p=0.97</div></div>
-        <div class="kpi"><div class="lab">卒中风险</div><div class="val delta">↓20%</div><div class="sub">RR 0.80；p=0.04</div></div>
-      </div>
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8">
 
-      <div class="card" style="padding:12px;border-radius:10px">
-        <div class="muted" style="margin-bottom:6px">📣 主张</div>
-        <div><b>在等效降压的前提下</b>，SR-地尔硫䓬带来<b class="delta">更低的卒中事件率</b>，并具备<b>良好耐受性</b>。</div>
-      </div>
+        <section id="overview" class="mb-20 scroll-mt-24">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-black tracking-tight text-slate-900 sm:text-5xl">盐酸达克罗宁深度分析报告</h2>
+                <p class="mt-6 max-w-3xl mx-auto text-xl leading-8 text-slate-600">本报告旨在深度回顾盐酸达克罗宁（Dyclopro）作为参比制剂的关键监管历程与核心临床研究数据，为相关评估提供详尽的事实依据。</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="content-card p-6 rounded-lg">
+                    <div class="text-5xl mb-4">🛡️</div>
+                    <h3 class="font-bold text-lg text-slate-800">独特的化学定位</h3>
+                    <p class="mt-2 text-slate-600">作为一种<strong class="text-blue-600">酮类</strong>局麻药，其化学结构与主流的酯类或酰胺类药物显著不同。这使其成为对后两类药物过敏患者的<strong class="text-blue-600">关键替代疗法</strong>，填补了重要的临床空白。</p>
+                </div>
+                <div class="content-card p-6 rounded-lg">
+                    <div class="text-5xl mb-4">🎯</div>
+                    <h3 class="font-bold text-lg text-slate-800">核心临床价值</h3>
+                    <p class="mt-2 text-slate-600">临床应用证实，其最突出的优势在于<strong class="text-blue-600">卓越的止吐效果</strong>。这一特性在牙科（如取模）和上消化道内窥镜检查等易引发呕吐反射的场景中，具有不可替代的价值。</p>
+                </div>
+                <div class="content-card p-6 rounded-lg">
+                    <div class="text-5xl mb-4">📜</div>
+                    <h3 class="font-bold text-lg text-slate-800">特殊的准入路径</h3>
+                    <p class="mt-2 text-slate-600">基于原研药悠久的历史和一项关键的FDA裁定，达克罗宁通过<strong class="text-blue-600">简化新药申请（ANDA）</strong>路径获批，无需进行新的大规模临床试验，这构成了其独特的市场地位。</p>
+                </div>
+            </div>
+        </section>
 
-      <h3>🙂 安全性（SR-地尔硫䓬不良反应更少）</h3>
-      <div class="legend"><span class="dot sr"></span>SR-地尔硫䓬 <span class="dot ct"></span>利尿剂/β阻滞剂</div>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>事件</th>
-            <th>SR-地尔硫䓬</th>
-            <th>对照</th>
-            <th>绝对差</th>
-            <th>相对下降</th>
-            <th style="width:42%">图形对照</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>乏力</td>
-            <td>4.4%</td>
-            <td>6.5%</td>
-            <td class="delta">-2.1%</td>
-            <td class="delta">≈32%↓</td>
-            <td>
-              <div class="barrow">
-                <div class="barstack"><span class="muted">SR</span><div class="chip sr" style="width:calc(4.4*6px)"></div></div>
-                <div class="barstack"><span class="muted">对照</span><div class="chip ct" style="width:calc(6.5*6px)"></div></div>
-                <div class="right">更少</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>呼吸困难</td>
-            <td>2.9%</td>
-            <td>3.9%</td>
-            <td class="delta">-1.0%</td>
-            <td class="delta">≈26%↓</td>
-            <td>
-              <div class="barrow">
-                <div class="barstack"><span class="muted">SR</span><div class="chip sr" style="width:calc(2.9*6px)"></div></div>
-                <div class="barstack"><span class="muted">对照</span><div class="chip ct" style="width:calc(3.9*6px)"></div></div>
-                <div class="right">更少</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>性功能障碍</td>
-            <td>2.3%</td>
-            <td>3.7%</td>
-            <td class="delta">-1.4%</td>
-            <td class="delta">≈38%↓</td>
-            <td>
-              <div class="barrow">
-                <div class="barstack"><span class="muted">SR</span><div class="chip sr" style="width:calc(2.3*6px)"></div></div>
-                <div class="barstack"><span class="muted">对照</span><div class="chip ct" style="width:calc(3.7*6px)"></div></div>
-                <div class="right">更少</div>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+        <section id="regulatory" class="mb-20 scroll-mt-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">关键监管历程：ANDA获批之路的深度解析</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-lg leading-8 text-slate-600">Dyclopro的监管路径是理解其市场地位的基石。它并非新药，而是基于历史悠久的原研药DYCLONE，通过特定监管裁定而重返市场。</p>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="insight-box border-2 border-blue-200 shadow-lg">
+                    <h4 class="font-bold text-lg text-blue-800 mb-2">报告核心：FDA的关键裁定（2004年）</h4>
+                    <p class="text-blue-900">本报告最关键的信息点在于：FDA正式确认原研药DYCLONE的退市<strong class="font-semibold">非因安全或有效性问题</strong>。这一裁定，是后续所有仿制药申请者可以<strong class="font-semibold">豁免新的大规模临床研究</strong>的法律基础，也是达克罗宁能以ANDA路径快速获批的核心原因。</p>
+                </div>
+                <div class="content-card p-8 rounded-xl mt-8">
+                    <div class="relative">
+                        <div class="timeline-item">
+                            <div class="timeline-marker">1</div>
+                            <div class="timeline-line"></div>
+                            <h4 class="font-bold text-lg">原研药上市 (NDA 9-925)</h4>
+                            <p class="text-slate-600">原研产品DYCLONE通过新药申请（NDA）获批，证明了其安全性和有效性。作为最早上市的版本，它积累了数十年的临床应用数据，为后续产品奠定了坚实的基础。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">2</div>
+                            <div class="timeline-line"></div>
+                            <h4 class="font-bold text-lg">原研药退市 (2002年)</h4>
+                            <p class="text-slate-600">AstraZeneca公司基于商业策略考量（如产品线调整、盈利能力下降等）主动将DYCLONE撤出市场，并非因为药品本身存在安全或疗效问题。这在医药行业是常见做法。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">3</div>
+                            <div class="timeline-line"></div>
+                            <h4 class="font-bold text-lg">FDA关键裁定 (2004年)</h4>
+                            <p class="text-slate-600">应潜在仿制药开发商请求，FDA启动调查并正式裁定：DYCLONE的退市<strong class="text-blue-600">并非</strong>基于安全性或有效性原因。此裁定至关重要，它为该药物的仿制打开了通道，允许后续申请者通过ANDA路径进行申报。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">4</div>
+                            <h4 class="font-bold text-lg">Dyclopro获批 (ANDA 200480, 2018年)</h4>
+                            <p class="text-slate-600">Novocol公司利用FDA的裁定，提交了简化新药申请（ANDA）。该申请只需证明其产品与原研药在剂型、规格、给药途径、质量和生物等效性上一致，而<strong class="text-blue-600">无需重复</strong>昂贵且耗时的大规模临床试验，最终成功获批，成为新的参比制剂。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <footer class="muted" style="text-align:center;margin-top:14px;font-size:12.5px">
+        <section id="efficacy" class="mb-20 scroll-mt-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">核心临床研究结果深度解读</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-lg leading-8 text-slate-600">已有的临床数据清晰地揭示了Dyclopro的特性：其价值并非体现在最强的麻醉效力，而是在特定临床场景下的综合表现。</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="content-card p-6 rounded-xl flex flex-col">
+                    <h3 class="text-xl font-semibold text-center mb-2">客观效力比较研究 (PMID: 10355012)</h3>
+                    <div class="insight-box mt-4">
+                        <h4 class="font-bold text-lg text-blue-800 mb-2">研究结论与解读：</h4>
+                        <p class="text-blue-900">这项双盲、安慰剂对照研究客观地显示，在提高牙龈压力疼痛阈值的测试中，1%达克罗宁的表现与10%苯佐卡因相似，但与安慰剂<strong class="font-semibold">无统计学差异</strong>。这一结果并非否定其价值，而是精准地指出了其定位：<strong class="font-semibold">单纯的麻醉强度并非其核心优势</strong>，其临床价值体现在其他方面。</p>
+                    </div>
+                    <div class="flex-grow chart-container">
+                        <canvas id="efficacyChart"></canvas>
+                    </div>
+                    <div class="text-center mt-4">
+                        <button id="togglePlacebo" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition">与安慰剂对比</button>
+                    </div>
+                </div>
+
+                <div class="content-card p-6 rounded-xl">
+                    <h3 class="text-xl font-semibold text-center mb-2">真实世界评估：《Dental Advisor》</h3>
+                    <div class="insight-box mt-4">
+                        <h4 class="font-bold text-lg text-blue-800 mb-2">评估结论与解读：</h4>
+                        <p class="text-blue-900">由独立临床评估机构《Dental Advisor》进行的真实世界评估，为我们提供了更贴近临床实践的视角。Dyclopro获得了<strong class="font-semibold">高达88%的正面评价</strong>，证明了其在日常诊疗中的高度实用性。评估报告明确指出，其<strong class="font-semibold">“抑制呕吐反射”的优点是其受到欢迎的关键原因</strong>，这一价值远超单纯的麻醉效果。</p>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                        <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                            <h4 class="font-semibold text-green-800">👍 报告的临床优势</h4>
+                            <ul class="list-disc list-inside mt-2 space-y-2 text-sm text-green-700">
+                                <li><strong class="font-semibold">抑制呕吐反射：</strong>在取模、放置橡皮障、口内X光片拍摄等场景效果极佳。</li>
+                                <li><strong>作用时间持久：</strong>提供足够长的麻醉时间以完成常规牙科操作。</li>
+                                <li><strong>深度黏膜麻醉：</strong>能够有效麻醉软组织，用于术前准备。</li>
+                                <li><strong>提升患者舒适度：</strong>综合以上优点，显著改善患者的就诊体验。</li>
+                            </ul>
+                        </div>
+                        <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                            <h4 class="font-semibold text-red-800">👎 报告的临床弱点</h4>
+                            <ul class="list-disc list-inside mt-2 space-y-2 text-sm text-red-700">
+                                <li><strong class="font-semibold">口感不佳：</strong>这是临床医生反馈最多的负面评价，直接影响患者接受度。</li>
+                                <li><strong>起效相对缓慢：</strong>5-10分钟的等待时间，在快节奏的诊疗中可能影响效率。</li>
+                                <li><strong>口味选择单一：</strong>缺乏不同口味选择，无法满足个性化需求。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-800 mt-20">
+        <div class="container mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-slate-400 text-sm">
+            <p>本分析报告仅供参考，所有信息均基于公开数据整理。</p>
+        </div>
     </footer>
-  </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const efficacyData = {
+                labels: ['5% EMLA乳膏', '1% 达克罗宁', '10% 苯佐卡因', '安慰剂'],
+                datasets: [{
+                    label: '疼痛阈值提高率 (%)',
+                    data: [20, 5, 5, 3], 
+                    backgroundColor: [
+                        'rgba(147, 197, 253, 0.8)', // blue-300
+                        'rgba(252, 211, 77, 0.8)', // amber-300
+                        'rgba(252, 211, 77, 0.8)', // amber-300
+                        'rgba(209, 213, 219, 0.8)'  // gray-300
+                    ],
+                    borderColor: [
+                        'rgba(37, 99, 235, 1)',
+                        'rgba(217, 119, 6, 1)',
+                        'rgba(217, 119, 6, 1)',
+                        'rgba(107, 114, 128, 1)'
+                    ],
+                    borderWidth: 1.5,
+                    borderRadius: 4,
+                }]
+            };
+
+            const efficacyOptions = {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: '#1e293b', // slate-800
+                        titleFont: {
+                            size: 14,
+                            weight: 'bold',
+                        },
+                        bodyFont: {
+                            size: 12,
+                        },
+                        padding: 10,
+                        cornerRadius: 4,
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.x !== null) {
+                                    label += context.parsed.x + '%';
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: {
+                            color: '#e2e8f0' // slate-200
+                        },
+                        ticks: {
+                            color: '#64748b' // slate-500
+                        },
+                        title: {
+                            display: true,
+                            text: '疼痛阈值提高率 (%)',
+                            color: '#334155' // slate-700
+                        }
+                    },
+                    y: {
+                        grid: {
+                            display: false
+                        },
+                         ticks: {
+                            color: '#334155' // slate-700
+                        }
+                    }
+                }
+            };
+
+            const ctx = document.getElementById('efficacyChart').getContext('2d');
+            const efficacyChart = new Chart(ctx, {
+                type: 'bar',
+                data: efficacyData,
+                options: efficacyOptions
+            });
+
+            const toggleButton = document.getElementById('togglePlacebo');
+            let isHighlighted = false;
+            const originalBorderColors = efficacyData.datasets[0].borderColor.slice();
+            const originalBorderWidths = Array(efficacyData.datasets[0].borderColor.length).fill(1.5);
+            const highlightBorderColor = 'rgba(239, 68, 68, 1)'; // red-500
+            const highlightBorderWidth = 3;
+
+            toggleButton.addEventListener('click', () => {
+                isHighlighted = !isHighlighted;
+                const placeboIndex = efficacyData.labels.indexOf('安慰剂');
+                if (placeboIndex === -1) return;
+
+                if (isHighlighted) {
+                    const newBorderColors = originalBorderColors.slice();
+                    const newBorderWidths = originalBorderWidths.slice();
+                    newBorderColors[placeboIndex] = highlightBorderColor;
+                    newBorderWidths[placeboIndex] = highlightBorderWidth;
+
+                    efficacyChart.data.datasets[0].borderColor = newBorderColors;
+                    efficacyChart.data.datasets[0].borderWidth = newBorderWidths;
+                    
+                    toggleButton.textContent = '清除对比';
+                    toggleButton.classList.remove('bg-blue-500', 'hover:bg-blue-600');
+                    toggleButton.classList.add('bg-red-500', 'hover:bg-red-600');
+                } else {
+                    efficacyChart.data.datasets[0].borderColor = originalBorderColors;
+                    efficacyChart.data.datasets[0].borderWidth = originalBorderWidths;
+                    toggleButton.textContent = '与安慰剂对比';
+                    toggleButton.classList.remove('bg-red-500', 'hover:bg-red-600');
+                    toggleButton.classList.add('bg-blue-500', 'hover:bg-blue-600');
+                }
+                efficacyChart.update();
+            });
+            
+            // Active Nav Link highlighting on scroll
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.toggle('active', link.getAttribute('href').substring(1) === entry.target.id);
+                        });
+                    }
+                });
+            }, { rootMargin: '-40% 0px -60% 0px' });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
 </body>
 </html>
+
